@@ -13,7 +13,11 @@ A Small component that renders 3 items in a list. Despite being so simple it sil
 
 This short form handles user inputs for 4 different fields. It shows to use react-testing-lib to interact with a rendered component that has various field validation rules
 
-## Using
+## How To Use
+
+A `README` acompanies each component and its tests. It is recommended that you have the relevant `README` to hand whilst going through a components implementation and tests. A story is provided for each component so you can interact with the component as well.
+
+There is no 'web app' as such here, only a collection of components that you could hypothetically use in an application. As such, there is no real reason to `yarn start` this application. Instead you should use `storybook` and `jest` to explore the components and tests.
 
 ### Tests
 

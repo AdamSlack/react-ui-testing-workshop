@@ -47,7 +47,18 @@ This component consists of a unordered list with 3 list items. One for the name,
 There are a fair few branches to handle here! This is entirely down to displaying different values depending on the state of the input `props`.
 
 - The `name` input prop actually has `5` different branches associated with it! (more if you consider all the ways something can be `falsy` in `JS`) This means that there are 5 different scenarios that you will want to cover
+```jsx
+...
+const formattedName = name 
+  ? [name.first, name.last].filter((namePart) => !!namePart).join(' ')
+  : 'Unknown'
+...
+<li>{formattedName || 'Unknown'}</li>
+...
+```
+
 - The `rank` input prop has `6` branches of logic, these are a litle more obvious than the `name`
+
 - Even the `score` input prop has at least `2` branches to consider
 
 Each of these branches should be covered through your react component tests. It is really easy for UI Components to spiral out of control and have 1000's of different configurations to test. You may wish to reconsider your implementation if it becomes difficult to test.
