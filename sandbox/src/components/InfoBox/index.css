@@ -1,0 +1,7 @@
+ul.InfoBox {
+  list-style: none;
+}
+
+ul.InfoBox li:nth-child(1) {
+  font-weight: bold;
+}

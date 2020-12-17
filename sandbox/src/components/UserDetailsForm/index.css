@@ -1,0 +1,19 @@
+form.userDetailsForm input {
+  font-size: larger;
+  border: none;
+  border-bottom: solid 1px #006600;
+  margin-bottom: 1em;
+  transition: all 0.2s;
+}
+
+form.userDetailsForm input:focus {
+  border-bottom: solid 2px #006600;
+  outline: none;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+form.userDetailsForm label {
+  display: block;
+}
