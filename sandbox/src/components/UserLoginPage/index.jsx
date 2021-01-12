@@ -5,7 +5,8 @@ import { UserDetailsForm } from '../UserDetailsForm'
 import { saveUserDetails } from '../../services/UserData'
 
 import './index.css'
-import { login, userToken } from '../../services/Auth';
+import { login, getUserToken } from '../../services/Auth';
+import { UserLoginForm } from '../UserLoginForm';
 
 export const UserLoginPage = withRouter((props) => {
   const { register, watch } = useForm({ mode: 'onChange' })
@@ -17,8 +18,9 @@ export const UserLoginPage = withRouter((props) => {
   }
 
   const loginSubmitHandler = async (formData) => {
-    await login();
-    if(userToken.token) {
+    await login(formData);
+    if(getUserToken()) {
+
       props.history.push('/home')
     }
   }
@@ -29,7 +31,7 @@ export const UserLoginPage = withRouter((props) => {
       {
         isNewUser
         ? <UserDetailsForm submitHandler={createNewUserSubmitHandler}/>
-        : <div>Login Form</div>        
+        :<UserLoginForm submitHandler={loginSubmitHandler}/>        
       }
 
     <form>

@@ -2,7 +2,9 @@ import axios from 'axios'
 
 const userDetailsEndpoint = 'https://fake-url.fake/auth'
 
-export const userToken = null
+export let userToken = {}
+
+export const getUserToken = () => userToken.token
 
 export const login = async ({ email, password }) => {
   const { data } = await axios({
@@ -14,4 +16,5 @@ export const login = async ({ email, password }) => {
     }
   })
   userToken = data
+
 }
