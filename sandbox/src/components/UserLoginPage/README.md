@@ -40,4 +40,17 @@ Functions passed to a mocked component might require some mechanism by which the
 
 ## Observing behaviour
 
-Aside from the child components there are some additional services which make `http` requests that have been mocked. In order to make observations and assertions when testing the `UserLoginPage` there will be lots of assertions that functions have been called. 
+There is some behaviour clearly visible to the user on this page, as well as some that is a little less obvious to the end user. The visible elements to be observed is primarily around the hiding and showing of different compoents depending on the user's actions. The less visible elements of behavior relate to the underlying http calls that are made when the `submitHandlers` made available by this method are utilised.
+
+Some of the behaviours is to be validated using the react-testing-library methods demonstrated in some of the other components. Other behaviours will be most effectively observed through mocking and making assetions using standard jest methods.
+
+To clearly state some of the expected behaviours:
+- Having the checkbox checked should show the 'new user form' and not the 'login form'
+- Having the checkbox unchecked should show the 'login form' and not the 'new user form'
+- When the login submit handler method is used an attempt to login is made
+- When a login token is available after logging in, a redirect should occur
+- When a login token is not available after logging in, no redirect should occur
+- When the new user submit handler is used an attempt to save user details is made
+- When the new user submit handler is successful, a redirect should occur
+
+In order to valdiate the above scenarios and expectations we will be making use of jest methods like `toHaveBeenCalledWith`, `not.toHaveBeenCalled`, and `toHaveBeenCalledTimes`. As well as react-testing-lib related methods to select and interact with elements on the screen.

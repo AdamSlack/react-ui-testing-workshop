@@ -9,9 +9,17 @@ This repo provides a series of practical examples of UI components. You can view
 
 A Small component that renders 3 items in a list. Despite being so simple it sill has `42` tests!
 
-### Unit Testing a short form: [UserDetailsForm](https://github.com/AdamSlack/react-ui-testing-workshop/tree/main/sandbox/src/components/UserDetailsForm)
+### Unit Testing short form: [UserLoginForm](https://github.com/AdamSlack/react-ui-testing-workshop/tree/main/sandbox/src/components/UserLoginForm)
+
+Really is just a more simple version of the [UserDetailsForm](https://github.com/AdamSlack/react-ui-testing-workshop/tree/main/sandbox/src/components/UserDetailsForm). There are two input fields tested here with minimal validation and a `submitHandler` prop.
+
+### Unit Testing a slightly longer form: [UserDetailsForm](https://github.com/AdamSlack/react-ui-testing-workshop/tree/main/sandbox/src/components/UserDetailsForm)
 
 This short form handles user inputs for 4 different fields. It shows to use react-testing-lib to interact with a rendered component that has various field validation rules
+
+### Unit Testing a page composed of other components: [UserLoginPage](https://github.com/AdamSlack/react-ui-testing-workshop/tree/main/sandbox/src/components/UserLoginPage)
+
+A component that is built from the `UserLoginForm` and the `UserDetailsForm` components as well as utilising some 'services' to make http requests. It demonstrates some of the more practical aspects of mocking that you may wish to carry out.
 
 ## How To Use
 
