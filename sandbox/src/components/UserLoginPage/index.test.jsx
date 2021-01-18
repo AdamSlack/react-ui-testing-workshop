@@ -140,7 +140,7 @@ describe('when submitting submiting the new user form', () => {
   })
 })
 
-describe('when logging in results in a user token being availabel', () => {
+describe('when logging in results in a user token being available', () => {
   beforeEach(async () => {
     getUserToken.mockReturnValue('fake-token')
 
