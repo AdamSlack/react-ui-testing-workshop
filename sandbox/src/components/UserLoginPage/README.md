@@ -62,3 +62,9 @@ The key thing to test in this component is the switching between two forms depen
 As well as the child components we also want to mock the external API calls that the services in the handlers make. The primary reason for this is that we don't actually want to make the HTTP requests. But also because it means we can have control over the success and failure of them. In this simple example we have no behaviour to cover what we should do in the event that an API request fails. And since we are testing behaviours only, there are no scenarios outlined for the non-existant error handling behaviours.
 
 We do however rely on the tests in the services themselves to confirm that if an error did occur, they do what we expect and propagate that error. This means we can be confident that when we need to handle the errors, the services are not going to swallow them and pretend nothing happened.
+
+There is a bit of complexity when testing the login handler. When the user successfully logs in, a token is stored in the application. The handler then checks if this token exists before navigating the user to a new page. There are a couple of ways to approach this.
+1. Mock the implementation of the service method and replicate the side-effect, storing a fake token in the store
+2. Mock the return value of some 'getter' method
+
+In this example there is a helpful `getToken` method which can be mocked to pretend a valid response was received. if a helpful getter was not available then the first option would need to be pursued.
