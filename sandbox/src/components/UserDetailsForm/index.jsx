@@ -5,7 +5,7 @@ import './index.css'
 
 export const UserDetailsForm = (props) => {
   const { submitHandler } = props
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit, register, errors } = useForm();
   return (
     <form onSubmit={handleSubmit(submitHandler)} className="userDetailsForm">
       
@@ -23,7 +23,8 @@ export const UserDetailsForm = (props) => {
             maxLength: 15
           })}
         />
-
+        
+      
         <label htmlFor="lastName">Last Name:</label>
         <input
           type="text"
@@ -49,10 +50,11 @@ export const UserDetailsForm = (props) => {
             required: true,
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: "invalid email address"
+              message: 'Please enter a valid email address'
             }
           })}
         />
+        {errors.email?.message}
       </section>
 
       <section>

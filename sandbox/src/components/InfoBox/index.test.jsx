@@ -48,7 +48,6 @@ describe.each(rankings)('when rendering InfoBox with all fields and a raking of:
 const propsOverrides = [
   { props: { name: undefined },           expectedText: { name: 'Unknown' }},
   { props: { name: {} },                  expectedText: { name: 'Unknown' }},
-  { props: { name: null },                expectedText: { name: 'Unknown' }},
   { props: { name: { first: 'Aaron'} },   expectedText: { name: 'Aaron' }},
   { props: { name: { last: 'Rodgers'} },  expectedText: { name: 'Rodgers' }},
   { props: { ranking: null },             expectedText: { ranking: 'Rank: Unknown' }},

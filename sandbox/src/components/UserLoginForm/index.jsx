@@ -5,12 +5,11 @@ import './index.css'
 
 export const UserLoginForm = (props) => {
   const { submitHandler } = props
-  const { handleSubmit, register } = useForm();
+  const { handleSubmit, register, errors } = useForm();
   return (
     <form onSubmit={handleSubmit(submitHandler)} className="userLoginForm">
       
       <section>
-
         <label htmlFor="email">Email:</label>
         <input
           type="text"
@@ -20,10 +19,11 @@ export const UserLoginForm = (props) => {
             required: true,
             pattern: {
               value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-              message: "invalid email address"
+              message: 'Please enter a valid email address'
             }
           })}
         />
+        {errors.email?.message}
 
         <label htmlFor="password">Password:</label>
         <input
@@ -34,6 +34,7 @@ export const UserLoginForm = (props) => {
             required: true,
           })}
         />
+
       </section>
 
       <button type="submit">Submit</button>

@@ -29,13 +29,18 @@ There is no 'web app' as such here, only a collection of components that you cou
 
 ### Tests
 
-You can run the test suite using Yarn
+You can run the test suite using Yarn. Stryker is also configured to run mutation tests to validate your test coverage!
 
+The following commands will let you run unit-tests without coverage, unit-tests with coverage, and mutation tests respectively 
 ```
 yarn test
+yarn test:coverage
+yarn test:mutate
 ```
 
 Test outputs should be logged to the console.
+
+
 
 ### Storybook
 

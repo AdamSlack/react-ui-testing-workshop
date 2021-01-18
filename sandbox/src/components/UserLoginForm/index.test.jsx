@@ -53,6 +53,22 @@ describe.each(fieldsToComplete)('when submitting an invalid form with the follow
   })
 })
 
+describe('when an invalid email is entered', () => {
+  beforeEach(async () => {
+    render(<UserLoginForm {...baseProps} />)
+    await completeForm({ email: 'fake-email'});
+    await act(async () => await userEvent.click(screen.getByText(/submit/i)))
+  })
+
+  it('should not submit the form', () => {
+    expect(baseProps.submitHandler).not.toHaveBeenCalled()
+  })
+
+  it('should display an error message', () => {
+    expect(screen.getByText('Please enter a valid email address')).toBeInTheDocument()
+  })
+})
+
 describe('When submitting the form with valid values', () => {
   let expectedValues
 

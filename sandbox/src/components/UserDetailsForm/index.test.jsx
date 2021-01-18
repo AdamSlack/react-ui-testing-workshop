@@ -84,3 +84,19 @@ describe('When submitting the form with valid values', () => {
     expect(baseProps.submitHandler).toHaveBeenCalledWith(expectedValues, expect.any(Object))
   })
 })
+
+describe('when an invalid email is entered', () => {
+  beforeEach(async () => {
+    render(<UserDetailsForm {...baseProps} />)
+    await completeForm({ email: 'fake-email'});
+    await act(async () => await userEvent.click(screen.getByText(/submit/i)))
+  })
+
+  it('should not submit the form', () => {
+    expect(baseProps.submitHandler).not.toHaveBeenCalled()
+  })
+
+  it('should display an error message', () => {
+    expect(screen.getByText('Please enter a valid email address')).toBeInTheDocument()
+  })
+})

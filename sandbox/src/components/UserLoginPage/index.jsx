@@ -9,7 +9,7 @@ import { login, getUserToken } from '../../services/Auth';
 import { UserLoginForm } from '../UserLoginForm';
 
 export const UserLoginPage = withRouter((props) => {
-  const { register, watch } = useForm({ mode: 'onChange' })
+  const { register, watch } = useForm()
   const isNewUser = watch('newUser')
 
   const createNewUserSubmitHandler = async (formData) => {
