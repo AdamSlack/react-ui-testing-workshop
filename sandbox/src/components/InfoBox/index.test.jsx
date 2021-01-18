@@ -20,6 +20,7 @@ const rankings = [
   { raw: 2, formattedRank: '2nd' },
   { raw: 3, formattedRank: '3rd' },
   { raw: 4, formattedRank: '4th' },
+  { raw: 10, formattedRank: '10th' },
   { raw: 11, formattedRank: '> 10th' },
   { raw: 42, formattedRank: '> 10th' },
   { raw: 100, formattedRank: '> 10th' },
@@ -47,6 +48,7 @@ describe.each(rankings)('when rendering InfoBox with all fields and a raking of:
 const propsOverrides = [
   { props: { name: undefined },           expectedText: { name: 'Unknown' }},
   { props: { name: {} },                  expectedText: { name: 'Unknown' }},
+  { props: { name: null },                expectedText: { name: 'Unknown' }},
   { props: { name: { first: 'Aaron'} },   expectedText: { name: 'Aaron' }},
   { props: { name: { last: 'Rodgers'} },  expectedText: { name: 'Rodgers' }},
   { props: { ranking: null },             expectedText: { ranking: 'Rank: Unknown' }},
@@ -54,7 +56,7 @@ const propsOverrides = [
   { props: { score: null },               expectedText: { score: 'Score: Unknown' }},
 ]
 
-describe.each(propsOverrides)('When rendered with partial inputs,', (overrides) => {
+describe.each(propsOverrides)('When rendered with partial inputs', (overrides) => {
   let expected = {};
 
   beforeEach(() => {

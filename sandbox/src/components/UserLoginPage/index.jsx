@@ -31,7 +31,7 @@ export const UserLoginPage = withRouter((props) => {
       {
         isNewUser
         ? <UserDetailsForm submitHandler={createNewUserSubmitHandler}/>
-        :<UserLoginForm submitHandler={loginSubmitHandler}/>        
+        : <UserLoginForm submitHandler={loginSubmitHandler}/>        
       }
 
     <form>
@@ -42,7 +42,7 @@ export const UserLoginPage = withRouter((props) => {
               type="checkbox" 
               name="newUser" 
               id="yesNewUser"
-              ref={register({required: true })}
+              ref={register()} 
             />
             Create new account?
           </label>
