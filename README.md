@@ -40,8 +40,6 @@ yarn test:mutate
 
 Test outputs should be logged to the console.
 
-
-
 ### Storybook
 
 You can launch storybook using yarn

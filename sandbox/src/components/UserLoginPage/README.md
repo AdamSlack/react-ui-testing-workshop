@@ -54,3 +54,11 @@ To clearly state some of the expected behaviours:
 - When the new user submit handler is successful, a redirect should occur
 
 In order to valdiate the above scenarios and expectations we will be making use of jest methods like `toHaveBeenCalledWith`, `not.toHaveBeenCalled`, and `toHaveBeenCalledTimes`. As well as react-testing-lib related methods to select and interact with elements on the screen.
+
+## Mocking
+
+The key thing to test in this component is the switching between two forms depending on the value of a checkbox. The implementation of the two forms themselves are largely irrelvant. As described in the `Child Components` section, we need to make use of the two forms so we can validate our handlers. But outside of that we should rely on the form unit tests for coverage of their own behaviour.
+
+As well as the child components we also want to mock the external API calls that the services in the handlers make. The primary reason for this is that we don't actually want to make the HTTP requests. But also because it means we can have control over the success and failure of them. In this simple example we have no behaviour to cover what we should do in the event that an API request fails. And since we are testing behaviours only, there are no scenarios outlined for the non-existant error handling behaviours.
+
+We do however rely on the tests in the services themselves to confirm that if an error did occur, they do what we expect and propagate that error. This means we can be confident that when we need to handle the errors, the services are not going to swallow them and pretend nothing happened.
