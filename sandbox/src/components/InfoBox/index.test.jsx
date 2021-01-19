@@ -41,7 +41,7 @@ describe.each(rankings)('when rendering InfoBox with all fields and a raking of:
   })
 
   it('should display the score', () => {
-    expect(screen.getAllByText('Score: 546'))
+    expect(screen.getByText('Score: 546')).toBeInTheDocument()
   })
 })
 

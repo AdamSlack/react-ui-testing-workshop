@@ -1,0 +1,8 @@
+ul.userDetails {
+  list-style: none;
+  padding: 0;
+}
+
+ul.userDetails li {
+  padding: 0.5em 0em;
+}

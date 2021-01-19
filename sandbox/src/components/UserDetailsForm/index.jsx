@@ -58,7 +58,7 @@ export const UserDetailsForm = (props) => {
       </section>
 
       <section>
-        <h2>How can we contact you?</h2>
+        <h2>Something for us to judge you on</h2>
         
         <label htmlFor="jsBeatsTs">How much better is JS over TS?:</label>
         <input
@@ -73,6 +73,7 @@ export const UserDetailsForm = (props) => {
             min: 100,
           })}
         />
+        <p> From 0 to 100 (Not at all better, to infinitely better)</p>
       </section>
 
       <button type="submit">Submit</button>

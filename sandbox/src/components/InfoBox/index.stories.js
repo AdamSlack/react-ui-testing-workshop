@@ -9,6 +9,7 @@ export default {
 const Template = (args) => <InfoBox {...args} />;
 
 export const Default = Template.bind({});
+
 Default.args = {
   name: {
     first: 'Aaron',
